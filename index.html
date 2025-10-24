@@ -8,159 +8,110 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
   <title>Serenity Hair — Luxury Invisible Extensions</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@400;600&family=Great+Vibes&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-  <!-- LANGUAGE SWITCH (top-left) -->
+  <!-- LANGUAGE SWITCH -->
   <div class="lang-toggle">
     <button id="lang-en" class="lang-btn active">EN</button> |
     <button id="lang-fr" class="lang-btn">FR</button>
   </div>
 
-  <!-- HEADER / HERO -->
+  <!-- HERO SECTION -->
   <header class="hero">
-    <div class="hero-content">
-      <!-- Logo -->
-      <div class="logo">
-        <span class="logo-script">Serenity Hair</span>
-      </div>
-      <h1 data-i18n="heroHeadline">Luxury Invisible Extensions for Effortless Confidence</h1>
-      <p class="sub" data-i18n="heroSub">At Serenity Hair, we redefine luxury through precision, comfort, and elegance.</p>
-      <div class="hero-cta">
-        <a class="btn" id="book-now" href="#booking" data-i18n="ctaBook">Book Your Appointment</a>
-        <a class="btn ghost" href="#services" data-i18n="ctaServices">View Services</a>
+    <div class="hero-text">
+      <h1>Serenity Hair</h1>
+      <p class="tagline">Luxury Invisible Extensions for Effortless Confidence</p>
+      <div class="buttons">
+        <a href="#booking" class="btn primary">Book Now</a>
+        <a href="#services" class="btn secondary">View Services</a>
       </div>
     </div>
-
-    <!-- Hero Image -->
-    <div class="hero-slides">
-      <img src="images/WhatsApp Image 2025-10-23 at 9.05.46 PM.jpeg" alt="Serenity Hair Front Page" class="active" />
+    <div class="hero-image">
+      <img src="images/WhatsApp Image 2025-10-23 at 9.05.46 PM.jpeg" alt="Serenity Hair Luxury Extensions">
     </div>
   </header>
 
-  <main class="container">
-
+  <main class="content">
     <!-- ABOUT -->
-    <section id="about" class="card about">
-      <h2 data-i18n="aboutTitle">About Serenity Hair</h2>
-      <p data-i18n="aboutText">
-        Serenity Hair is a luxury hair brand based in Paris, specializing in invisible extensions that redefine elegance and comfort.
-        Every detail of our craft celebrates individuality — subtle, seamless, and sophisticated.
-        Because true luxury is confidence that feels effortless.
-      </p>
+    <section id="about" class="about">
+      <h2>About Serenity Hair</h2>
+      <p>Serenity Hair is a luxury hair brand based in Paris, offering invisible extensions that redefine elegance and comfort.
+         Every installation is executed with precision and care, ensuring a natural, seamless finish that enhances your beauty effortlessly.
+         Because true luxury is confidence that feels natural.</p>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="card services">
-      <h2 data-i18n="servicesTitle">Services & Pricing</h2>
+    <section id="services" class="services">
+      <h2>Services & Pricing</h2>
+      <p>Invisible Injected Adhesive Bands (Extensions) — the most natural and seamless method.  
+      1 Pack = 20 Bands (50g) • 55cm length</p>
 
-      <div class="service-grid">
-        <div class="service">
-          <h3 data-i18n="serviceName">Invisible Tape-In Extensions</h3>
-          <p class="muted" data-i18n="serviceDetails">
-            Invisible injected adhesive bands — strand-by-strand application for the most natural finish.<br>
-            1 pack = 20 bands (50g) • length 55 cm
-          </p>
-        </div>
-
-        <div class="pricecard">
-          <div class="price-row">
-            <span data-i18n="price20">20 bands (1 pack)</span>
-            <span class="old">€250</span>
-            <span class="new">€225</span>
-          </div>
-          <div class="price-row">
-            <span data-i18n="price40">40 bands (2 packs)</span>
-            <span class="old">€400</span>
-            <span class="new">€360</span>
-          </div>
-          <div class="price-row">
-            <span data-i18n="price60">60 bands (3 packs)</span>
-            <span class="old">€550</span>
-            <span class="new">€495</span>
-          </div>
-
-          <hr>
-          <div class="small">
-            <div>Removal (no reapplication) <strong>€40</strong></div>
-            <div>Remove & Reinstall <strong>€130</strong></div>
-            <div>Installation Only <strong>€150</strong></div>
-            <div>Reapply <strong>€20</strong></div>
-          </div>
-
-          <p class="muted">*Price includes extensions installation + haircut.</p>
-        </div>
+      <div class="pricing">
+        <div class="price-item"><span>20 Bands (1 Pack)</span><span class="old">€250</span><span class="new">€225</span></div>
+        <div class="price-item"><span>40 Bands (2 Packs)</span><span class="old">€400</span><span class="new">€360</span></div>
+        <div class="price-item"><span>60 Bands (3 Packs)</span><span class="old">€550</span><span class="new">€495</span></div>
+        <p class="note">*Price includes installation & haircut.</p>
       </div>
 
-      <!-- discount banner -->
-      <div class="discount" id="discount">
-        <strong data-i18n="discountText">✨ Launch offer: 10% off all services for a limited time ✨</strong>
+      <div class="extras">
+        <p>Removal — €80</p>
+        <p>Removal & Reinstall — €130</p>
+        <p>Installation Only — €150</p>
+        <p>Reapply — €20</p>
+      </div>
+
+      <div class="discount">
+        ✨ Launch Offer: 10% Off All Services ✨
       </div>
     </section>
 
     <!-- GALLERY -->
-    <section id="gallery" class="card gallery">
-      <h2 data-i18n="galleryTitle">Gallery</h2>
-      <p class="muted" data-i18n="gallerySub">A glimpse of Serenity. Click any image to enlarge.</p>
+    <section id="gallery" class="gallery">
+      <h2>Gallery</h2>
       <div class="grid">
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg" alt="Gallery 1" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg" alt="Gallery 2" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg" alt="Gallery 3" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (5).jpeg" alt="Gallery 4" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg" alt="Gallery 5" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg" alt="Gallery 6" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (2).jpeg" alt="Gallery 7" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (1).jpeg" alt="Gallery 8" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM.jpeg" alt="Gallery 9" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg" alt="Gallery 1">
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg" alt="Gallery 2">
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg" alt="Gallery 3">
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (5).jpeg" alt="Gallery 4">
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg" alt="Gallery 5">
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg" alt="Gallery 6">
       </div>
     </section>
 
     <!-- BOOKING -->
-    <section id="booking" class="card booking">
-      <h2 data-i18n="bookingTitle">Book an Appointment</h2>
-      <p class="muted" data-i18n="bookingSub">Choose a date and an available one-hour slot. Bookings are confirmed by email.</p>
-
-      <form id="booking-form" class="form" action="mailto:serenityhair.fr@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Full name" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <select name="service" required>
-          <option value="20 Bands">20 Bands (1 Pack)</option>
-          <option value="40 Bands">40 Bands (2 Packs)</option>
-          <option value="60 Bands">60 Bands (3 Packs)</option>
+    <section id="booking" class="booking">
+      <h2>Book an Appointment</h2>
+      <form action="mailto:serenityhair.fr@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <select name="service">
+          <option>20 Bands (1 Pack)</option>
+          <option>40 Bands (2 Packs)</option>
+          <option>60 Bands (3 Packs)</option>
         </select>
-        <input type="date" name="date" required />
-        <input type="time" name="time" required />
-        <textarea name="message" placeholder="Additional notes..."></textarea>
-        <button class="btn" type="submit">Send Booking Request</button>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <textarea name="message" placeholder="Additional Notes..."></textarea>
+        <button type="submit" class="btn primary">Send Booking Request</button>
       </form>
 
-      <div class="hours card small">
-        <h4 data-i18n="hoursTitle">Opening Hours</h4>
-        <ul>
-          <li>Mon: Closed</li>
-          <li>Tue–Fri: 12h – 19h</li>
-          <li>Sat: 10h – 16h</li>
-          <li>Sun: Closed</li>
-        </ul>
-      </div>
+      <p class="hours">Opening Hours: Tue–Fri 12h–19h | Sat 10h–16h</p>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="card contact">
-      <h2 data-i18n="contactTitle">Contact</h2>
+    <section id="contact" class="contact">
+      <h2>Contact</h2>
       <p>Email: <a href="mailto:serenityhair.fr@gmail.com">serenityhair.fr@gmail.com</a></p>
-      <p>Instagram & TikTok: <a href="https://instagram.com/byserenityhair" target="_blank">@byserenityhair</a></p>
+      <p>Instagram & TikTok: <a href="https://www.instagram.com/byserenityhair" target="_blank">@byserenityhair</a></p>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
-    <div>© 2025 Serenity Hair • Luxury Invisible Extensions, Paris</div>
+    © 2025 Serenity Hair — Paris
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>
