@@ -301,3 +301,37 @@ h2 {
     font-size: 42px;
   }
 }
+/* LIGHTBOX GALLERY */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.lightbox .arrow,
+.lightbox .close {
+  position: absolute;
+  color: #E8D5C4; /* beige accent to match Serenity palette */
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lightbox .arrow.left { left: 30px; top: 50%; transform: translateY(-50%); }
+.lightbox .arrow.right { right: 30px; top: 50%; transform: translateY(-50%); }
+.lightbox .close { top: 25px; right: 35px; }
