@@ -22,7 +22,7 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
   <!-- HEADER / HERO -->
   <header class="hero">
     <div class="hero-content">
-      <!-- Logo: "Great Vibes" is used for elegant script. Replace with your Sloop Script Pro file if you have it. -->
+      <!-- Logo -->
       <div class="logo">
         <span class="logo-script">Serenity Hair</span>
       </div>
@@ -34,11 +34,9 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
       </div>
     </div>
 
-    <!-- slide-in images (replace images/hero1.jpg etc.) -->
+    <!-- Hero Image -->
     <div class="hero-slides">
-      <img src="images/hero1.jpg" alt="hero 1" />
-      <img src="images/hero2.jpg" alt="hero 2" />
-      <img src="images/hero3.jpg" alt="hero 3" />
+      <img src="images/WhatsApp Image 2025-10-23 at 9.05.46 PM.jpeg" alt="Serenity Hair Front Page" class="active" />
     </div>
   </header>
 
@@ -48,9 +46,9 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
     <section id="about" class="card about">
       <h2 data-i18n="aboutTitle">About Serenity Hair</h2>
       <p data-i18n="aboutText">
-        Serenity Hair is a luxury hair brand dedicated to natural-looking, exquisite hair extensions.
-        We craft each install with meticulous attention so every client leaves feeling confident and elegant.
-        Our expertise lies in invisible, strand-by-strand application that reads like real hair — discreet, comfortable, and long-lasting.
+        Serenity Hair is a luxury hair brand based in Paris, specializing in invisible extensions that redefine elegance and comfort.
+        Every detail of our craft celebrates individuality — subtle, seamless, and sophisticated.
+        Because true luxury is confidence that feels effortless.
       </p>
     </section>
 
@@ -87,8 +85,8 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
           <hr>
           <div class="small">
             <div>Removal (no reapplication) <strong>€40</strong></div>
-            <div>Removal & reinstall <strong>€130</strong></div>
-            <div>Remove only <strong>€80</strong></div>
+            <div>Remove & Reinstall <strong>€130</strong></div>
+            <div>Installation Only <strong>€150</strong></div>
             <div>Reapply <strong>€20</strong></div>
           </div>
 
@@ -96,24 +94,26 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
         </div>
       </div>
 
-      <!-- discount banner (removable) -->
+      <!-- discount banner -->
       <div class="discount" id="discount">
-        <strong data-i18n="discountText">Launch offer: 10% off your first appointment.</strong>
+        <strong data-i18n="discountText">✨ Launch offer: 10% off all services for a limited time ✨</strong>
       </div>
     </section>
 
     <!-- GALLERY -->
     <section id="gallery" class="card gallery">
       <h2 data-i18n="galleryTitle">Gallery</h2>
-      <p class="muted" data-i18n="gallerySub">Click any image to enlarge. Replace these images in /images to update.</p>
+      <p class="muted" data-i18n="gallerySub">A glimpse of Serenity. Click any image to enlarge.</p>
       <div class="grid">
-        <!-- Replace these files with your salon photos (same filenames) -->
-        <img src="images/gal1.jpg" alt="gallery 1" class="gallery-item" />
-        <img src="images/gal2.jpg" alt="gallery 2" class="gallery-item" />
-        <img src="images/gal3.jpg" alt="gallery 3" class="gallery-item" />
-        <img src="images/gal4.jpg" alt="gallery 4" class="gallery-item" />
-        <img src="images/gal5.jpg" alt="gallery 5" class="gallery-item" />
-        <img src="images/gal6.jpg" alt="gallery 6" class="gallery-item" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg" alt="Gallery 1" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg" alt="Gallery 2" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg" alt="Gallery 3" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (5).jpeg" alt="Gallery 4" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg" alt="Gallery 5" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg" alt="Gallery 6" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (2).jpeg" alt="Gallery 7" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (1).jpeg" alt="Gallery 8" />
+        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM.jpeg" alt="Gallery 9" />
       </div>
     </section>
 
@@ -122,27 +122,27 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
       <h2 data-i18n="bookingTitle">Book an Appointment</h2>
       <p class="muted" data-i18n="bookingSub">Choose a date and an available one-hour slot. Bookings are confirmed by email.</p>
 
-      <div class="booking-controls">
-        <label data-i18n="chooseDate">Choose a date</label>
-        <input type="date" id="booking-date" />
-        <div id="slots" class="slots"></div>
-      </div>
-
-      <form id="booking-form" class="form" onsubmit="return false;">
-        <input type="text" id="client-name" placeholder="Full name" required />
-        <input type="email" id="client-email" placeholder="Email" required />
-        <input type="text" id="client-telephone" placeholder="Phone (optional)" />
-        <input type="text" id="selected-slot" readonly placeholder="Selected slot" required />
-        <textarea id="notes" placeholder="Notes (hair length / preferences)"></textarea>
-
-        <!-- booking via mailto (client will send an email to the owner with booking details) -->
-        <button id="send-booking" class="btn" type="button" data-i18n="bookButton">Send Booking Request</button>
+      <form id="booking-form" class="form" action="mailto:serenityhair.fr@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Full name" required />
+        <input type="email" name="email" placeholder="Email" required />
+        <select name="service" required>
+          <option value="20 Bands">20 Bands (1 Pack)</option>
+          <option value="40 Bands">40 Bands (2 Packs)</option>
+          <option value="60 Bands">60 Bands (3 Packs)</option>
+        </select>
+        <input type="date" name="date" required />
+        <input type="time" name="time" required />
+        <textarea name="message" placeholder="Additional notes..."></textarea>
+        <button class="btn" type="submit">Send Booking Request</button>
       </form>
 
       <div class="hours card small">
         <h4 data-i18n="hoursTitle">Opening Hours</h4>
-        <ul id="hoursList">
-          <!-- hours populated by JS -->
+        <ul>
+          <li>Mon: Closed</li>
+          <li>Tue–Fri: 12h – 19h</li>
+          <li>Sat: 10h – 16h</li>
+          <li>Sun: Closed</li>
         </ul>
       </div>
     </section>
@@ -150,16 +150,15 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
     <!-- CONTACT -->
     <section id="contact" class="card contact">
       <h2 data-i18n="contactTitle">Contact</h2>
-      <p class="muted">Email: <a href="mailto:serenityhair.fr@gmail.com">serenityhair.fr@gmail.com</a></p>
-      <p class="muted">Instagram & TikTok: <a href="https://instagram.com/byserenityhair" target="_blank">@byserenityhair</a></p>
+      <p>Email: <a href="mailto:serenityhair.fr@gmail.com">serenityhair.fr@gmail.com</a></p>
+      <p>Instagram & TikTok: <a href="https://instagram.com/byserenityhair" target="_blank">@byserenityhair</a></p>
     </section>
 
   </main>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <div>© Serenity Hair • Luxury Invisible Extensions</div>
-    <div>Email: <a href="mailto:serenityhair.fr@gmail.com">serenityhair.fr@gmail.com</a></div>
+    <div>© 2025 Serenity Hair • Luxury Invisible Extensions, Paris</div>
   </footer>
 
   <script src="script.js"></script>
