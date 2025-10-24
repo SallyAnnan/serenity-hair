@@ -205,42 +205,45 @@ $('#send-booking').addEventListener('click', ()=>{
   window.location.href = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
 });
 
-// Lightbox functionality
+// Serenity Hair - Lightbox Gallery Functionality
+
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
-const galleryImages = document.querySelectorAll('.gallery img');
+const galleryImages = document.querySelectorAll('#gallery img');
 let currentIndex = 0;
 
-galleryImages.forEach((img, i) => {
-  img.addEventListener('click', () => {
-    currentIndex = i;
-    lightboxImg.src = img.src;
-    lightbox.classList.add('active');
+if (lightbox && galleryImages.length > 0) {
+  galleryImages.forEach((img, i) => {
+    img.addEventListener('click', () => {
+      currentIndex = i;
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
   });
-});
 
-document.querySelector('.lightbox .close').addEventListener('click', () => {
-  lightbox.classList.remove('active');
-});
+  document.querySelector('.lightbox .close').addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
 
-document.querySelector('.lightbox .arrow.left').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex].src;
-});
+  document.querySelector('.lightbox .arrow.left').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  });
 
-document.querySelector('.lightbox .arrow.right').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex].src;
-});
+  document.querySelector('.lightbox .arrow.right').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex].src;
+  });
 
-// Swipe on mobile
-let startX = 0;
-lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-lightbox.addEventListener('touchend', e => {
-  const endX = e.changedTouches[0].clientX;
-  if (endX < startX - 50) document.querySelector('.lightbox .arrow.right').click();
-  if (endX > startX + 50) document.querySelector('.lightbox .arrow.left').click();
-});
+  // Swipe on mobile
+  let startX = 0;
+  lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  lightbox.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (endX < startX - 50) document.querySelector('.lightbox .arrow.right').click();
+    if (endX > startX + 50) document.querySelector('.lightbox .arrow.left').click();
+  });
+}
 
 
 /* ---------- ADMIN NOTE ----------
