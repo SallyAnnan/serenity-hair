@@ -205,12 +205,6 @@ $('#send-booking').addEventListener('click', ()=>{
   window.location.href = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
 });
 
-/* ---------- SMALL UX: gallery click to open image in new tab ---------- */
-document.addEventListener('click', function(e){
-  if(e.target.classList.contains('gallery-item')){
-    window.open(e.target.src, '_blank');
-  }
-});
 // Lightbox functionality
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
