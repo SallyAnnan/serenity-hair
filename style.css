@@ -22,11 +22,12 @@
 }
 
 body {
-  background: linear-gradient(180deg, var(--deep), var(--accent), var(--sand));
+  background: #3B2A22; /* SKIMS-inspired rich brown */
   color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
 }
+
 
 /* LANGUAGE TOGGLE */
 .lang-toggle {
