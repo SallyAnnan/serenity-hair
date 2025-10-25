@@ -207,57 +207,61 @@ $('#send-booking').addEventListener('click', ()=>{
 
 // Serenity Hair - Click-to-Open Gallery Lightbox
 
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightbox-img');
-const openGallery = document.getElementById('openGallery');
+document.addEventListener('DOMContentLoaded', function() {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const openGallery = document.getElementById('openGallery');
 
-// All photos shown inside the lightbox (your 9 files)
-const galleryImages = [
-  "images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (5).jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (2).jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (1).jpeg",
-  "images/WhatsApp Image 2025-10-23 at 9.05.04 PM.jpeg"
-];
+  // Your 9 images
+  const galleryImages = [
+    "images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (5).jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (2).jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (1).jpeg",
+    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM.jpeg"
+  ];
 
-let currentIndex = 0;
+  let currentIndex = 0;
 
-// Open lightbox when cover is clicked
-if (openGallery) {
-  openGallery.addEventListener('click', () => {
-    currentIndex = 0;
-    lightboxImg.src = galleryImages[currentIndex];
-    lightbox.classList.add('active');
+  if (openGallery) {
+    openGallery.addEventListener('click', () => {
+      currentIndex = 0;
+      lightboxImg.src = galleryImages[currentIndex];
+      lightbox.classList.add('active');
+    });
+  }
+
+  // Close
+  document.querySelector('.lightbox .close').addEventListener('click', () => {
+    lightbox.classList.remove('active');
   });
-}
 
-// Controls
-document.querySelector('.lightbox .close').addEventListener('click', () => {
-  lightbox.classList.remove('active');
+  // Left
+  document.querySelector('.lightbox .arrow.left').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex];
+  });
+
+  // Right
+  document.querySelector('.lightbox .arrow.right').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    lightboxImg.src = galleryImages[currentIndex];
+  });
+
+  // Swipe on mobile
+  let startX = 0;
+  lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  lightbox.addEventListener('touchend', e => {
+    const endX = e.changedTouches[0].clientX;
+    if (endX < startX - 50) document.querySelector('.lightbox .arrow.right').click();
+    if (endX > startX + 50) document.querySelector('.lightbox .arrow.left').click();
+  });
 });
 
-document.querySelector('.lightbox .arrow.left').addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex];
-});
-
-document.querySelector('.lightbox .arrow.right').addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % galleryImages.length;
-  lightboxImg.src = galleryImages[currentIndex];
-});
-
-// Swipe (mobile)
-let startX = 0;
-lightbox.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-lightbox.addEventListener('touchend', e => {
-  const endX = e.changedTouches[0].clientX;
-  if (endX < startX - 50) document.querySelector('.lightbox .arrow.right').click();
-  if (endX > startX + 50) document.querySelector('.lightbox .arrow.left').click();
-});
 
 
 /* ---------- ADMIN NOTE ----------
