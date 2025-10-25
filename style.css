@@ -301,6 +301,26 @@ h2 {
     font-size: 42px;
   }
 }
+/* GALLERY COVER */
+.gallery-cover {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery-cover img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+.gallery-cover img:hover {
+  transform: scale(1.02);
+}
+
 /* LIGHTBOX GALLERY */
 .lightbox {
   display: none;
