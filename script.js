@@ -113,7 +113,7 @@ function renderHours(){
     ul.appendChild(li);
   });
 }
-renderHours();
+//renderHours();
 
 /* ---------- SLOT GENERATION ---------- */
 /* For chosen date, generate 1-hour slots between open and close */
