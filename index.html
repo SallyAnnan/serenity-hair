@@ -103,28 +103,24 @@ Official website for Serenity Hair — luxury hair extensions and salon care.
     </section>
 
     <!-- GALLERY -->
-    <section id="gallery" class="card gallery">
-      <h2 data-i18n="galleryTitle">Gallery</h2>
-      <p class="muted">Click any image to enlarge.</p>
-   <div class="grid">
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg" alt="Gallery 1" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg" alt="Gallery 2" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg" alt="Gallery 3" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (5).jpeg" alt="Gallery 4" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg" alt="Gallery 5" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg" alt="Gallery 6" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (2).jpeg" alt="Gallery 7" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM (1).jpeg" alt="Gallery 8" />
-        <img src="images/WhatsApp Image 2025-10-23 at 9.05.04 PM.jpeg" alt="Gallery 9" />
-      </div>
-      <!-- Lightbox Popup -->
-<div class="lightbox" id="lightbox">
-  <span class="close">&times;</span>
-  <span class="arrow left">&#10094;</span>
-  <img id="lightbox-img" src="" alt="">
-  <span class="arrow right">&#10095;</span>
-</div>
-    </section>
+<section id="gallery" class="card gallery">
+  <h2 data-i18n="galleryTitle">Gallery</h2>
+  <p class="muted">Tap the image below to view our full gallery.</p>
+
+  <!-- Single cover image (what users click) -->
+  <div class="gallery-cover">
+    <img src="images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg" alt="Gallery cover" id="openGallery" />
+  </div>
+
+  <!-- Lightbox Popup -->
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <span class="arrow left">&#10094;</span>
+    <img id="lightbox-img" src="" alt="">
+    <span class="arrow right">&#10095;</span>
+  </div>
+</section>
+
 
     <!-- BOOKING -->
     <section id="booking" class="card booking">
