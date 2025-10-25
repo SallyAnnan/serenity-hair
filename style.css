@@ -1,19 +1,19 @@
-/* LUXURY SKIMS-STYLE DESIGN */
-
-/* style.css
-   Serenity Hair – Luxe gradient brown theme
-*/
+/* ==========================================================
+   Serenity Hair — Luxe SKIMS-Inspired Theme
+   Palette: rich mocha, soft nude, subtle beige
+   Style: modern, feminine, luxury
+   ========================================================== */
 
 /* COLORS */
 :root {
   --sand: #D8C3A5;        /* soft nude beige */
   --accent: #6B4F3F;      /* warm brown */
-  --deep: #3B2A22;        /* deep mocha */
+  --deep: #3B2A22;        /* deep mocha background */
   --white: #FFFFFF;
-  --muted: #C8B6A6;
+  --muted: #C8B6A6;       /* muted beige for text */
 }
 
-/* Basic reset */
+/* BASIC RESET */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,12 +22,11 @@
 }
 
 body {
-  background: #3B2A22; /* SKIMS-inspired rich brown */
+  background: var(--deep);
   color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
 }
-
 
 /* LANGUAGE TOGGLE */
 .lang-toggle {
@@ -44,6 +43,7 @@ body {
   cursor: pointer;
   padding: 6px 8px;
   color: var(--white);
+  transition: color 0.3s ease;
 }
 
 .lang-btn.active {
@@ -59,7 +59,6 @@ body {
   position: relative;
   min-height: 70vh;
   background: transparent;
-  overflow: hidden;
 }
 
 .hero-content {
@@ -118,10 +117,9 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* HERO SIDE IMAGE */
+/* HERO IMAGE (RIGHT SIDE) */
 .hero-slides {
   width: 40%;
-  position: relative;
   display: flex;
   justify-content: flex-end;
 }
@@ -132,8 +130,6 @@ body {
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  opacity: 1 !important;
-  filter: none !important;
 }
 
 /* MAIN CONTAINER */
@@ -208,25 +204,89 @@ h2 {
   font-weight: 600;
 }
 
-/* GALLERY */
-.gallery .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-top: 12px;
+/* GALLERY COVER (ICON STYLE) */
+.gallery-cover {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
 }
 
-.gallery img {
+.gallery-cover img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
+  max-width: 520px;
+  border-radius: 14px;
   cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+.gallery-cover img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 14px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* LIGHTBOX GALLERY */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 10, 8, 0.93);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
   transition: transform 0.3s ease;
 }
 
-.gallery img:hover {
-  transform: scale(1.04);
+.lightbox img:hover {
+  transform: scale(1.02);
+}
+
+.lightbox .arrow,
+.lightbox .close {
+  position: absolute;
+  color: var(--sand);
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.lightbox .arrow:hover,
+.lightbox .close:hover {
+  color: var(--white);
+}
+
+.lightbox .arrow.left {
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox .arrow.right {
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox .close {
+  top: 25px;
+  right: 35px;
 }
 
 /* BOOKING FORM */
@@ -237,7 +297,8 @@ h2 {
   margin-top: 12px;
 }
 
-.form input, .form textarea {
+.form input,
+.form textarea {
   padding: 12px;
   border-radius: 10px;
   border: none;
@@ -264,6 +325,10 @@ h2 {
   font-weight: 600;
 }
 
+.contact a:hover {
+  color: var(--white);
+}
+
 .footer {
   padding: 24px;
   text-align: center;
@@ -271,87 +336,44 @@ h2 {
   font-size: 14px;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE DESIGN */
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
     text-align: center;
   }
+
   .hero-content {
     max-width: 100%;
   }
+
   .hero-slides {
     width: 80%;
     justify-content: center;
     margin-top: 20px;
   }
+
   .services .service-grid {
     grid-template-columns: 1fr;
   }
-  .gallery .grid {
-    grid-template-columns: repeat(2, 1fr);
+
+  .gallery-cover img {
+    max-width: 420px;
   }
 }
 
 @media (max-width: 520px) {
-  .gallery .grid {
-    grid-template-columns: 1fr;
-  }
   .logo-script {
     font-size: 42px;
   }
-}
-/* GALLERY COVER */
-.gallery-cover {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+
+  .gallery-cover img {
+    max-width: 100%;
+  }
 }
 
-.gallery-cover img {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+/* SOFT ANIMATIONS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
-.gallery-cover img:hover {
-  transform: scale(1.02);
-}
-
-/* LIGHTBOX GALLERY */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85);
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox.active {
-  display: flex;
-}
-
-.lightbox img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.lightbox .arrow,
-.lightbox .close {
-  position: absolute;
-  color: #E8D5C4; /* beige accent to match Serenity palette */
-  font-size: 2rem;
-  cursor: pointer;
-  user-select: none;
-}
-
-.lightbox .arrow.left { left: 30px; top: 50%; transform: translateY(-50%); }
-.lightbox .arrow.right { right: 30px; top: 50%; transform: translateY(-50%); }
-.lightbox .close { top: 25px; right: 35px; }
