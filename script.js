@@ -101,19 +101,6 @@ document.getElementById('lang-fr').addEventListener('click',()=>{
 });
 applyText('en'); // default
 
-/* ---------- HOURS RENDER ---------- */
-function renderHours(){
-  const ul = $('#hoursList');
-  ul.innerHTML = '';
-  Object.keys(hours).forEach(k=>{
-    const h = hours[k];
-    const li = document.createElement('li');
-    const open = (h.open === 'closed') ? 'Closed' : `${h.open} - ${h.close}`;
-    li.innerText = `${h.label.replace('/', ' / ')}: ${ (h.open==='closed') ? (currentLang==='fr' ? 'Fermé' : 'Closed') : `${h.open} - ${h.close}`}`;
-    ul.appendChild(li);
-  });
-}
-//renderHours();
 
 /* ---------- SLOT GENERATION ---------- */
 /* For chosen date, generate 1-hour slots between open and close */
