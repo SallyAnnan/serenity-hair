@@ -164,33 +164,6 @@ function setDefaultDate(){
 dateInput.addEventListener('change', ()=> generateSlotsFor(dateInput.value));
 setDefaultDate();
 
-/* ---------- Send booking (mailto) ---------- */
-$('#send-booking').addEventListener('click', ()=>{
-  const name = $('#client-name').value.trim();
-  const email = $('#client-email').value.trim();
-  const phone = $('#client-telephone').value.trim();
-  const slot = $('#selected-slot').value.trim();
-  const notes = $('#notes').value.trim();
-
-  if(!name || !email || !slot){
-    alert(currentLang === 'fr' ? 'Veuillez remplir votre nom, email et sélectionner un créneau.' : 'Please enter your name, email, and select a slot.');
-    return;
-  }
-
-  const subject = encodeURIComponent(`Booking request — ${name}`);
-  const bodyLines = [
-    `Name: ${name}`,
-    `Email: ${email}`,
-    `Phone: ${phone}`,
-    `Requested slot: ${slot}`,
-    `Service: Invisible Tape-In Extensions (20 / 40 / 60 bands)`,
-    `Notes: ${notes}`
-  ];
-  const body = encodeURIComponent(bodyLines.join('\n'));
-
-  // mailto link opens user's email client with prefilled email to the salon
-  window.location.href = `mailto:${OWNER_EMAIL}?subject=${subject}&body=${body}`;
-});
 
 // Serenity Hair - Click-to-Open Gallery Lightbox
 
