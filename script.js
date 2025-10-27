@@ -188,3 +188,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+/* ---------- BOOKING FORM ENCODING FIX ---------- */
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("booking-form");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    // Prevent default mailto behavior
+    e.preventDefault();
+
+    // Collect and encode all form data
+    const name = encodeURIComponent(form.name.value);
+    const email = encodeURIComponent(form.email.value);
+    const service = encodeURIComponent(form.service.value);
+    const date = encodeURIComponent(form.date.value);
+    const time = encodeURIComponent(form.time.value);
+    const message = encodeURIComponent(form.message.value);
+
+    // Structure the email body nicely with line breaks
+    const body =
+      `Name: ${name}%0D%0A` +
+      `Email: ${email}%0D%0A` +
+      `Service: ${service}%0D%0A` +
+      `Date: ${date}%0D%0A` +
+      `Time: ${time}%0D%0A` +
+      `Message: ${message}`;
+
+    // Optional — subject line that includes name and date
+    const subject = encodeURIComponent(`Booking – ${form.name.value} – ${form.date.value}`);
+
+    // Update the mailto action dynamically
+    window.location.href = `mailto:serenityhair.fr@gmail.com?subject=${subject}&body=${body}`;
+  });
+});
