@@ -1,17 +1,16 @@
 /* ==========================================================
-   Serenity Hair — Luxe SKIMS-Inspired Theme
-   Palette: rich mocha, soft nude, subtle beige
+   Serenity Hair — Luxe Black Theme
+   Palette: rich black, warm brown, soft beige
    Style: modern, feminine, luxury
    ========================================================== */
 
 /* COLORS */
 :root {
   --sand: #D8C3A5;        /* soft nude beige */
-  --accent: #6B4F3F;      /* warm brown */
-  --deep: #3B2A22;        /* deep mocha background */
-  --white: #FFFFFF;
-  --muted: #C8B6A6;       /* muted beige for text */
- 
+  --accent: #E8D5C4;      /* warm light beige */
+  --deep: #1A120B;        /* deep black background */
+  --text: #F5F3EF;        /* soft white-beige text */
+  --muted: #C8B6A6;       /* muted beige */
 }
 
 /* BASIC RESET */
@@ -23,13 +22,11 @@
 }
 
 body {
-  background: var(--white);
-  color: var(--deep);
+  background: var(--deep);
+  color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
 }
-
-
 
 /* LANGUAGE TOGGLE */
 .lang-toggle {
@@ -45,7 +42,7 @@ body {
   border: none;
   cursor: pointer;
   padding: 6px 8px;
-  color: var(--white);
+  color: var(--text);
   transition: color 0.3s ease;
 }
 
@@ -62,6 +59,7 @@ body {
   position: relative;
   min-height: 70vh;
   background: transparent;
+  gap: 40px;
 }
 
 .hero-content {
@@ -80,7 +78,7 @@ body {
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: 38px;
-  color: var(--white);
+  color: var(--text);
   margin-top: 10px;
 }
 
@@ -120,7 +118,7 @@ body {
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* HERO IMAGE (RIGHT SIDE) */
+/* HERO IMAGE */
 .hero-slides {
   width: 40%;
   display: flex;
@@ -132,7 +130,7 @@ body {
   max-width: 480px;
   border-radius: 20px;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 /* MAIN CONTAINER */
@@ -143,11 +141,12 @@ body {
 }
 
 .card {
-  background: rgba(0, 0, 0, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   padding: 28px;
   border-radius: 14px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
   margin-bottom: 30px;
+  backdrop-filter: blur(8px);
 }
 
 h2 {
@@ -202,36 +201,13 @@ h2 {
   border-radius: 8px;
   background: linear-gradient(90deg, rgba(107,79,63,0.4), rgba(216,195,165,0.2));
   text-align: center;
-  color: var(--sand);
+  color: var(--accent);
   font-weight: 600;
 }
 
 /* ==========================================================
    GALLERY (MULTI-BUBBLE LAYOUT)
    ========================================================== */
-
-/* Keep this if you still use single cover */
-.gallery-cover {
-  display: flex;
-  justify-content: center;
-  margin-top: 25px;
-}
-
-.gallery-cover img {
-  width: 100%;
-  max-width: 520px;
-  border-radius: 14px;
-  cursor: pointer;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
-}
-
-.gallery-cover img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 14px 50px rgba(0, 0, 0, 0.6);
-}
-
-/* 🎀 NEW multi-bubble gallery layout */
 .gallery-bubbles {
   display: flex;
   justify-content: center;
@@ -341,12 +317,13 @@ h2 {
 }
 
 .form input,
-.form textarea {
+.form textarea,
+.form select {
   padding: 12px;
   border-radius: 10px;
   border: none;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--text);
   font-size: 14px;
 }
 
@@ -369,7 +346,7 @@ h2 {
 }
 
 .contact a:hover {
-  color: var(--white);
+  color: var(--accent);
 }
 
 .footer {
@@ -382,18 +359,28 @@ h2 {
 /* RESPONSIVE DESIGN */
 @media (max-width: 900px) {
   .hero {
-    flex-direction: column;
-    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    gap: 20px;
+    padding: 40px 6%;
   }
 
   .hero-content {
-    max-width: 100%;
+    max-width: 55%;
   }
 
   .hero-slides {
-    width: 80%;
-    justify-content: center;
-    margin-top: 20px;
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0;
+  }
+
+  .hero-slides img {
+    max-width: 100%;
+    height: auto;
   }
 
   .services .service-grid {
@@ -410,7 +397,16 @@ h2 {
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 480px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
   .logo-script {
     font-size: 42px;
   }
@@ -433,4 +429,4 @@ h2 {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
-
+}
