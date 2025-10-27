@@ -11,6 +11,8 @@
   --deep: #3B2A22;        /* deep mocha background */
   --white: #FFFFFF;
   --muted: #C8B6A6;       /* muted beige for text */
+  --text-dark: #111111; /* deep black for readable body text */
+
 }
 
 /* BASIC RESET */
@@ -23,10 +25,11 @@
 
 body {
   background: var(--deep);
-  color: var(--white);
+  color: var(--text-dark);
   line-height: 1.6;
   overflow-x: hidden;
 }
+
 
 /* LANGUAGE TOGGLE */
 .lang-toggle {
@@ -432,3 +435,24 @@ h2 {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+/* TEXT COLOR REFINEMENT */
+.hero h1,
+.services h3,
+.services p,
+.price-row span,
+.discount,
+.booking p,
+.about p,
+.contact p,
+.contact a,
+.form input,
+.form textarea,
+.form label {
+  color: var(--text-dark) !important;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: rgba(17, 17, 17, 0.6);
+}
+
