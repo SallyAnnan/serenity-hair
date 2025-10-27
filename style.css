@@ -161,6 +161,25 @@ h2 {
   color: var(--muted);
   font-size: 15px;
 }
+/* Section separation for About page */
+.about h3 {
+  color: var(--sand);
+  font-family: 'Playfair Display', serif;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.about h3 + p {
+  margin-bottom: 18px;
+}
+
+/* Divider line between subsections */
+.about hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 22px 0;
+}
 
 /* SERVICES */
 .services .service-grid {
