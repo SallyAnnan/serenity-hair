@@ -502,3 +502,47 @@ h2 {
     margin: 10px auto;
   }
 }
+@media (max-width: 600px) {
+
+  /* Bigger horizontal Serenity Hair title */
+  .logo-script {
+    display: inline-block;
+    font-size: 64px; /* larger size for mobile */
+    white-space: nowrap;
+    line-height: 1;
+    position: relative;
+    left: 5%;
+  }
+
+  /* Slightly move the title upward for proportion */
+  .hero-content {
+    margin-top: -10px;
+  }
+
+  /* Align image height with text block */
+  .hero-slides {
+    width: 60%;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    aspect-ratio: 4 / 5;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Center buttons */
+  .hero-cta {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    display: inline-block;
+    margin: 10px auto;
+  }
+}
