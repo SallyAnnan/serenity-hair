@@ -33,6 +33,11 @@ const TEXT = {
     bookButton: "Send Booking Request",
     hoursTitle: "Opening Hours",
     contactTitle: "Contact",
+     inspirationTitle: "What Inspired Serenity Hair",
+inspirationText: "Serenity Hair was born from a personal journey. After experiencing hair loss, our founder searched endlessly for extensions that looked natural, but everything she tried felt artificial and obvious. That changed the day she discovered invisible extensions. For the first time, she saw herself again — confident, elegant, and effortlessly beautiful. Serenity Hair was created to share that same feeling with others.",
+whyChooseTitle: " Why Choose Us",
+whyChooseText: "Because you deserve the best. Our extensions are crafted from the highest-quality hair on the market and designed to blend seamlessly with your natural texture. Each strand moves, shines, and feels just like your own — giving you a flawless, undetectable finish that lasts.",
+
   },
   fr: {
     heroHeadline: "Extensions invisibles de luxe pour une confiance naturelle",
@@ -59,6 +64,11 @@ const TEXT = {
     bookButton: "Envoyer la demande",
     hoursTitle: "Horaires d'ouverture",
     contactTitle: "Contact",
+     inspirationTitle: "Ce qui a inspiré Serenity Hair",
+inspirationText: "Serenity Hair est née d’un parcours personnel. Après avoir connu une perte de cheveux, notre fondatrice a cherché sans relâche des extensions naturelles, mais tout semblait artificiel et évident. Tout a changé le jour où elle a découvert les extensions invisibles. Pour la première fois, elle s’est revue — confiante, élégante et naturellement belle. Serenity Hair a été créée pour partager ce sentiment avec d’autres femmes.",
+whyChooseTitle: " Pourquoi nous choisir",
+whyChooseText: "Parce que vous méritez ce qu’il y a de mieux. Nos extensions sont fabriquées à partir des cheveux de la plus haute qualité sur le marché et sont conçues pour se fondre parfaitement avec votre texture naturelle. Chaque mèche bouge, brille et se ressent comme la vôtre, pour un résultat impeccable et indétectable qui dure.",
+
   },
 };
 
