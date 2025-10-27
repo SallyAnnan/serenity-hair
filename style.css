@@ -482,3 +482,23 @@ h2 {
     }
   }
 }
+@media (max-width: 600px) {
+
+  /* Make "Serenity Hair" horizontal */
+  .logo-script {
+    display: inline-block;
+    font-size: 46px;
+    white-space: nowrap;
+  }
+
+  /* Center the CTA buttons */
+  .hero-cta {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    display: inline-block;
+    margin: 10px auto;
+  }
+}
