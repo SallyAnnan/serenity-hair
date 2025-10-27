@@ -161,6 +161,7 @@ h2 {
   color: var(--muted);
   font-size: 15px;
 }
+
 /* Section separation for About page */
 .about h3 {
   color: var(--sand);
@@ -224,9 +225,7 @@ h2 {
   font-weight: 600;
 }
 
-/* ==========================================================
-   GALLERY (MULTI-BUBBLE LAYOUT)
-   ========================================================== */
+/* GALLERY */
 .gallery-bubbles {
   display: flex;
   justify-content: center;
@@ -293,38 +292,6 @@ h2 {
 
 .lightbox img:hover {
   transform: scale(1.02);
-}
-
-.lightbox .arrow,
-.lightbox .close {
-  position: absolute;
-  color: var(--sand);
-  font-size: 2rem;
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.3s ease;
-}
-
-.lightbox .arrow:hover,
-.lightbox .close:hover {
-  color: var(--white);
-}
-
-.lightbox .arrow.left {
-  left: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.lightbox .arrow.right {
-  right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.lightbox .close {
-  top: 25px;
-  right: 35px;
 }
 
 /* BOOKING FORM */
@@ -415,6 +382,8 @@ h2 {
     height: 130px;
   }
 }
+
+/* MOBILE POLISH + EXTRA FEATURES */
 @media (max-width: 600px) {
   .hero {
     flex-direction: row !important;
@@ -468,15 +437,45 @@ h2 {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
   }
 
-  /* Fade-in animation */
+  /* Center-align hero buttons */
+  .hero-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .hero-cta .btn {
+    width: 80%;
+    text-align: center;
+  }
+
+  /* Add "Hair" beside Serenity */
+  .logo-script {
+    display: inline-block;
+    position: relative;
+    animation: slideIn 1s ease forwards;
+  }
+
+  .logo-script::after {
+    content: " Hair";
+    font-family: 'Great Vibes', cursive;
+    color: var(--sand);
+    position: absolute;
+    top: 0;
+    right: -60px;
+    font-size: 56px;
+  }
+
+  /* Fade + Slide animations */
   @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
   }
 }
