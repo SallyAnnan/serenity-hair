@@ -1,10 +1,10 @@
 /* ==========================================================
-   Serenity Hair – Clean, Final JavaScript
+   Serenity Hair – Final JavaScript (multi-gallery ready)
    Features:
    ✅ Language switch (EN / FR)
-   ✅ Gallery cover opens lightbox with scrollable photos
+   ✅ Works with one cover (#openGallery) OR three bubbles (.bubble)
+   ✅ Lightbox with arrows + mobile swipe
    ✅ No console errors
-   ✅ Booking form works (mailto)
    ========================================================== */
 
 /* ---------- SITE TEXT (EN + FR) ---------- */
@@ -62,96 +62,111 @@ const TEXT = {
   },
 };
 
-/* ---------- LANGUAGE SWITCH ---------- */
-let currentLang = "en";
-
-function applyText(lang) {
-  currentLang = lang;
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    if (TEXT[lang][key]) el.innerText = TEXT[lang][key];
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
+/* ---------- APP BOOT ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  /* Language switch */
+  let currentLang = "en";
+  function applyText(lang) {
+    currentLang = lang;
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const key = el.getAttribute("data-i18n");
+      if (TEXT[lang][key]) el.innerText = TEXT[lang][key];
+    });
+  }
   const enBtn = document.getElementById("lang-en");
   const frBtn = document.getElementById("lang-fr");
-
   if (enBtn && frBtn) {
     enBtn.addEventListener("click", () => {
       enBtn.classList.add("active");
       frBtn.classList.remove("active");
       applyText("en");
     });
-
     frBtn.addEventListener("click", () => {
       frBtn.classList.add("active");
       enBtn.classList.remove("active");
       applyText("fr");
     });
   }
+  applyText("en"); // default
 
-  // Default to English
-  applyText("en");
-});
-
-/* ---------- GALLERY LIGHTBOX ---------- */
-document.addEventListener("DOMContentLoaded", function () {
+  /* ---------- LIGHTBOX (supports single cover OR three bubbles) ---------- */
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
-  const openGallery = document.getElementById("openGallery");
+  const leftArrow  = document.querySelector(".lightbox .arrow.left");
+  const rightArrow = document.querySelector(".lightbox .arrow.right");
+  const closeBtn   = document.querySelector(".lightbox .close");
 
-  // List of gallery images
-  const galleryImages = [
-    "images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (5).jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (2).jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (1).jpeg",
-    "images/WhatsApp Image 2025-10-23 at 9.05.04 PM.jpeg",
-  ];
+  // Define all galleries (use your exact filenames)
+  const galleries = {
+    main: [
+      "images/WhatsApp Image 2025-10-23 at 9.05.27 PM (1).jpeg",
+      "images/WhatsApp Image 2025-10-23 at 9.05.27 PM.jpeg",
+      "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (6).jpeg",
+      "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (4).jpeg",
+      "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (3).jpeg",
+      "images/WhatsApp Image 2025-10-23 at 9.05.04 PM (2).jpeg"
+    ],
+    beforeafter: [
+      "images/Before after minimal skincare Instagram post.png",
+      "images/HAIR EXTENSIONS.jpeg"
+      // cover image for this bubble is (5).jpeg, set in HTML, not needed here
+    ],
+    bands: [
+      "images/WhatsApp Image 2025-10-24 at 11.33.20 PM.jpeg",
+      "images/WhatsApp Image 2025-10-25 at 6.14.36 PM.jpeg",
+      "images/WhatsApp Image 2025-10-25 at 6.14.37 PM (1).jpeg",
+      "images/WhatsApp Image 2025-10-25 at 6.14.37 PM.jpeg"
+    ]
+  };
 
   let currentIndex = 0;
+  let currentGallery = [];
 
-  // When clicking the gallery cover
+  // A) Support your original single cover (id="openGallery") → open MAIN gallery
+  const openGallery = document.getElementById("openGallery");
   if (openGallery && lightbox && lightboxImg) {
     openGallery.addEventListener("click", () => {
+      currentGallery = galleries.main.slice();
       currentIndex = 0;
-      lightboxImg.src = galleryImages[currentIndex];
+      lightboxImg.src = currentGallery[currentIndex];
       lightbox.classList.add("active");
     });
   }
 
-  // Close lightbox
-  const closeBtn = document.querySelector(".lightbox .close");
+  // B) Support the three bubbles (.bubble[data-gallery])
+  document.querySelectorAll(".bubble").forEach((bubble) => {
+    bubble.addEventListener("click", () => {
+      const galleryName = bubble.getAttribute("data-gallery");
+      currentGallery = (galleries[galleryName] || []).slice();
+      currentIndex = 0;
+      if (currentGallery.length) {
+        lightboxImg.src = currentGallery[currentIndex];
+        lightbox.classList.add("active");
+      }
+    });
+  });
+
+  // Navigation + Close + Swipe
+  if (leftArrow) {
+    leftArrow.addEventListener("click", () => {
+      if (!currentGallery.length) return;
+      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+      lightboxImg.src = currentGallery[currentIndex];
+    });
+  }
+  if (rightArrow) {
+    rightArrow.addEventListener("click", () => {
+      if (!currentGallery.length) return;
+      currentIndex = (currentIndex + 1) % currentGallery.length;
+      lightboxImg.src = currentGallery[currentIndex];
+    });
+  }
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
       lightbox.classList.remove("active");
     });
   }
 
-  // Left arrow
-  const leftArrow = document.querySelector(".lightbox .arrow.left");
-  if (leftArrow) {
-    leftArrow.addEventListener("click", () => {
-      currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex];
-    });
-  }
-
-  // Right arrow
-  const rightArrow = document.querySelector(".lightbox .arrow.right");
-  if (rightArrow) {
-    rightArrow.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % galleryImages.length;
-      lightboxImg.src = galleryImages[currentIndex];
-    });
-  }
-
-  // Swipe on mobile
   let startX = 0;
   if (lightbox) {
     lightbox.addEventListener("touchstart", (e) => (startX = e.touches[0].clientX));
@@ -162,11 +177,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-/* ---------- NOTES ----------
-✅ No duplicate TEXT declaration
-✅ No missing IDs
-✅ No “Cannot read property” errors
-✅ No booking JS (form handles itself via mailto)
-✅ Gallery opens, scrolls, and closes properly
-*/
