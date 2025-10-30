@@ -622,3 +622,22 @@ h2 {
     margin: 10px auto;
   }
 }
+/* ==========================================================
+   HERO VISIBILITY FIX (Desktop vs Mobile)
+   ========================================================== */
+
+/* By default, show desktop hero and hide mobile */
+.hero-mobile {
+  display: none;
+}
+
+/* On mobile screens (under 600px), hide desktop hero and show mobile */
+@media (max-width: 600px) {
+  .hero {
+    display: none;
+  }
+
+  .hero-mobile {
+    display: block;
+  }
+}
