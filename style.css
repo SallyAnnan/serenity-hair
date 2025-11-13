@@ -666,3 +666,177 @@ h2 {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* =========================
+   TOP NAV + MOBILE MENU
+   ========================= */
+
+.top-nav {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 40;
+}
+
+.nav-left {
+  margin-right: auto;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--text);
+  padding: 6px;
+}
+
+.nav-appointment {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--sand);
+  color: var(--sand);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Hamburger (mobile only) */
+.hamburger {
+  display: none; /* will be shown on mobile */
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+/* Slide-out mobile menu */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  z-index: 60;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.mobile-menu-inner {
+  width: 70%;
+  max-width: 260px;
+  height: 100%;
+  background: var(--deep);
+  padding: 24px;
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.6);
+}
+
+.close-menu {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-size: 28px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.mobile-menu-inner ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.mobile-menu-inner li {
+  margin: 12px 0;
+}
+
+.mobile-menu-inner a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Search bar overlay */
+.search-bar {
+  display: none;
+  width: 100%;
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.8);
+  position: relative;
+  z-index: 39;
+}
+
+.search-bar.show {
+  display: block;
+}
+
+#site-search-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+}
+
+#site-search-input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--text);
+  font-size: 14px;
+}
+
+#site-search-form button {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  background: var(--sand);
+  color: var(--deep);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Highlighted search result */
+.search-highlight {
+  outline: 2px solid var(--sand);
+  background: rgba(216, 195, 165, 0.1);
+  transition: background 0.3s ease;
+}
+
+/* Mobile-specific tweaks */
+@media (max-width: 600px) {
+  .top-nav {
+    padding: 10px 16px;
+    justify-content: space-between;
+  }
+
+  .hamburger {
+    display: inline-flex;
+  }
+
+  .nav-appointment {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+}
