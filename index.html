@@ -18,6 +18,53 @@
     <button id="lang-en" class="lang-btn active">EN</button> |
     <button id="lang-fr" class="lang-btn">FR</button>
   </div>
+  <!-- TOP NAV: search + appointment + mobile menu -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <!-- Hamburger only shows on mobile via CSS -->
+      <button class="hamburger" id="menu-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="nav-right">
+      <button class="icon-btn" id="search-toggle" aria-label="Search">
+        🔍
+      </button>
+      <a href="#booking" class="nav-appointment">
+        Make an Appointment
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile slide-out menu -->
+  <nav class="mobile-menu" id="mobile-menu">
+    <div class="mobile-menu-inner">
+      <button class="close-menu" id="close-menu" aria-label="Close menu">&times;</button>
+      <ul>
+        <li><a href="#services">Shop</a></li>
+        <li><a href="#booking">Prendre RDV</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Search bar overlay -->
+  <div class="search-bar" id="search-bar">
+    <form id="site-search-form">
+      <input
+        type="text"
+        id="site-search-input"
+        placeholder="Search on the site..."
+        autocomplete="off"
+      />
+      <button type="submit">Go</button>
+    </form>
+  </div>
+
 
 <!-- HEADER / HERO -->
 <header class="hero">
