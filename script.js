@@ -221,3 +221,80 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = `mailto:serenityhair.fr@gmail.com?subject=${subject}&body=${body}`;
   });
 });
+/* ---------- MOBILE MENU + SEARCH ---------- */
+document.addEventListener("DOMContentLoaded", function () {
+  // Mobile menu
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const closeMenu = document.getElementById("close-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", () => {
+      mobileMenu.classList.add("open");
+    });
+  }
+
+  if (closeMenu && mobileMenu) {
+    closeMenu.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+    });
+  }
+
+  // Close menu when clicking outside inner panel
+  if (mobileMenu) {
+    mobileMenu.addEventListener("click", (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenu.classList.remove("open");
+      }
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    });
+  }
+
+  // Search toggle
+  const searchToggle = document.getElementById("search-toggle");
+  const searchBar = document.getElementById("search-bar");
+  const searchForm = document.getElementById("site-search-form");
+  const searchInput = document.getElementById("site-search-input");
+
+  if (searchToggle && searchBar) {
+    searchToggle.addEventListener("click", () => {
+      searchBar.classList.toggle("show");
+      if (searchBar.classList.contains("show") && searchInput) {
+        searchInput.focus();
+      }
+    });
+  }
+
+  // Very simple on-page search: scroll to first matching text
+  if (searchForm && searchInput) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const q = searchInput.value.trim().toLowerCase();
+      if (!q) return;
+
+      const candidates = document.querySelectorAll("h1, h2, h3, p");
+      let target = null;
+
+      candidates.forEach((el) => {
+        if (!target && el.innerText.toLowerCase().includes(q)) {
+          target = el;
+        }
+      });
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "center" });
+        target.classList.add("search-highlight");
+        setTimeout(() => {
+          target.classList.remove("search-highlight");
+        }, 2000);
+      } else {
+        alert("No matching content found.");
+      }
+    });
+  }
+});
