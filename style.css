@@ -1,6 +1,6 @@
 /* ==========================================================
-   Serenity Hair — Luxe Black Theme
-   Palette: rich black, warm brown, soft beige
+   Serenity Hair — Luxe White Theme
+   Palette: pure white, warm brown, soft beige
    Style: modern, feminine, luxury
    ========================================================== */
 
@@ -8,9 +8,10 @@
 :root {
   --sand: #D8C3A5;        /* soft nude beige */
   --accent: #E8D5C4;      /* warm light beige */
-  --deep: #1A120B;        /* deep black background */
-  --text: #F5F3EF;        /* soft white-beige text */
-  --muted: #C8B6A6;       /* muted beige */
+  --deep: #FFFFFF;        /* MAIN BACKGROUND: pure white */
+  --text: #111111;        /* dark text for readability */
+  --muted: #7A6655;       /* warm muted brown for secondary text */
+  --white: #FFFFFF;
 }
 
 /* BASIC RESET */
@@ -58,7 +59,7 @@ body {
   padding: 60px 8%;
   position: relative;
   min-height: 70vh;
-  background: transparent;
+  background: var(--deep);
   gap: 40px;
 }
 
@@ -97,7 +98,7 @@ body {
   padding: 12px 22px;
   border-radius: 8px;
   background: var(--sand);
-  color: var(--deep);
+  color: var(--text);
   text-decoration: none;
   font-weight: 600;
   margin-right: 10px;
@@ -115,7 +116,7 @@ body {
 }
 
 .btn.ghost:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.02);
 }
 
 /* HERO IMAGE */
@@ -130,7 +131,7 @@ body {
   max-width: 480px;
   border-radius: 20px;
   object-fit: cover;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* MAIN CONTAINER */
@@ -141,12 +142,12 @@ body {
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.05);
+  background: #FFFFFF;
   padding: 28px;
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
   margin-bottom: 30px;
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 h2 {
@@ -178,7 +179,7 @@ h2 {
 /* Divider line between subsections */
 .about hr {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   margin: 22px 0;
 }
 
@@ -191,9 +192,10 @@ h2 {
 }
 
 .pricecard {
-  background: rgba(255, 255, 255, 0.08);
+  background: #FAF7F3;
   padding: 14px;
   border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .price-row {
@@ -203,7 +205,7 @@ h2 {
   padding: 8px 0;
   font-weight: 600;
   font-size: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .price-row .old {
@@ -219,9 +221,9 @@ h2 {
   margin-top: 15px;
   padding: 14px;
   border-radius: 8px;
-  background: linear-gradient(90deg, rgba(107,79,63,0.4), rgba(216,195,165,0.2));
+  background: linear-gradient(90deg, rgba(107,79,63,0.08), rgba(216,195,165,0.12));
   text-align: center;
-  color: var(--accent);
+  color: var(--muted);
   font-weight: 600;
 }
 
@@ -247,7 +249,7 @@ h2 {
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -261,7 +263,7 @@ h2 {
 
 .bubble:hover img {
   transform: scale(1.06);
-  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 12px 45px rgba(0, 0, 0, 0.2);
 }
 
 /* LIGHTBOX */
@@ -341,8 +343,8 @@ h2 {
 .form select {
   padding: 12px;
   border-radius: 10px;
-  border: none;
-  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #FAFAFA;
   color: var(--text);
   font-size: 14px;
 }
@@ -366,7 +368,7 @@ h2 {
 }
 
 .contact a:hover {
-  color: var(--accent);
+  color: var(--muted);
 }
 
 .footer {
@@ -421,16 +423,8 @@ h2 {
    MOBILE HERO REDESIGN (House of Kate Style)
    ========================================================== */
 @media (max-width: 600px) {
-  /* Hide the old hero layout */
+  /* Old hero (desktop layout) not used as main on mobile */
   .hero {
-    display: block;
-    text-align: center;
-    padding: 0;
-    background: var(--deep);
-    position: relative;
-  }
-
-  .hero::before {
     display: none;
   }
 
@@ -438,13 +432,13 @@ h2 {
   .scroll-banner {
     overflow: hidden;
     white-space: nowrap;
-    background: var(--deep);
+    background: #F9F5F0;
     color: var(--sand);
     font-weight: 600;
     font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   }
 
   .scroll-text {
@@ -461,13 +455,13 @@ h2 {
   /* Centered Logo */
   .hero-logo {
     padding: 25px 0 10px;
+    text-align: center;
   }
 
   .hero-logo .logo-script {
-    font-size: 46px;
+    font-size: 38px;
     font-family: 'Great Vibes', cursive;
     color: var(--sand);
-    text-align: center;
   }
 
   /* Before/After Image Section */
@@ -487,6 +481,15 @@ h2 {
     height: 100%;
     object-fit: cover;
     display: block;
+  }
+
+  .before-after.single img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 1.4s ease;
   }
 
   /* Text under image section */
@@ -519,6 +522,7 @@ h2 {
     margin: 10px auto;
   }
 }
+
 /* ==========================================================
    MOBILE HERO (Exclusive)
    ========================================================== */
@@ -529,11 +533,6 @@ h2 {
 }
 
 @media (max-width: 600px) {
-  /* Hide the desktop hero */
-  .hero {
-    display: none;
-  }
-
   /* Show the new mobile hero */
   .hero-mobile {
     display: block;
@@ -541,106 +540,9 @@ h2 {
     background: var(--deep);
     color: var(--text);
   }
-
-  /* Scrolling banner */
-  .scroll-banner {
-    overflow: hidden;
-    white-space: nowrap;
-    background: var(--deep);
-    color: var(--sand);
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .scroll-text {
-    display: inline-block;
-    padding: 10px 0;
-    animation: scrollLoop 12s linear infinite;
-  }
-
-  @keyframes scrollLoop {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* Logo */
-  .hero-logo {
-    padding: 25px 0 10px;
-  }
-
-  .hero-logo .logo-script {
-    font-size: 46px;
-    color: var(--sand);
-    font-family: 'Great Vibes', cursive;
-  }
-
-  /* Before/After */
-  .before-after {
-    display: flex;
-    width: 100%;
-  }
-
-  .before, .after {
-    width: 50%;
-  }
-
-  .before img,
-  .after img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  /* Text */
-  .hero-text {
-    padding: 30px 20px;
-  }
-
-  .hero-text h1 {
-    font-size: 18px;
-    color: var(--text);
-    font-family: 'Playfair Display', serif;
-  }
-
-  .hero-text .sub {
-    color: var(--muted);
-    font-size: 14px;
-    margin: 10px 0 20px;
-  }
-
-  /* Buttons */
-  .hero-cta {
-    text-align: center;
-  }
-
-  .hero-cta .btn {
-    display: block;
-    width: fit-content;
-    margin: 10px auto;
-  }
-}
-/* ==========================================================
-   HERO VISIBILITY FIX (Desktop vs Mobile)
-   ========================================================== */
-
-/* By default, show desktop hero and hide mobile */
-.hero-mobile {
-  display: none;
 }
 
-/* On mobile screens (under 600px), hide desktop hero and show mobile */
-@media (max-width: 600px) {
-  .hero {
-    display: none;
-  }
-
-  .hero-mobile {
-    display: block;
-  }
-}
+/* HERO LOGO ANIMATION */
 .hero-logo {
   text-align: center;
   margin-bottom: 20px;
@@ -653,19 +555,11 @@ h2 {
   animation: fadeIn 1.2s ease;
 }
 
-.before-after.single img {
-  width: 100%;
-  border-radius: 14px;
-  object-fit: cover;
-  display: block;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-  animation: fadeIn 1.4s ease;
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 /* =========================
    TOP NAV + MOBILE MENU
    ========================= */
@@ -679,6 +573,7 @@ h2 {
   gap: 12px;
   position: relative;
   z-index: 40;
+  background: transparent;
 }
 
 .nav-left {
@@ -745,9 +640,9 @@ h2 {
   width: 70%;
   max-width: 260px;
   height: 100%;
-  background: var(--deep);
+  background: #FFFFFF;
   padding: 24px;
-  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.6);
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.2);
 }
 
 .close-menu {
@@ -780,7 +675,7 @@ h2 {
   display: none;
   width: 100%;
   padding: 8px 16px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.06);
   position: relative;
   z-index: 39;
 }
@@ -800,8 +695,8 @@ h2 {
   flex: 1;
   padding: 8px 10px;
   border-radius: 20px;
-  border: none;
-  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #FFFFFF;
   color: var(--text);
   font-size: 14px;
 }
@@ -811,7 +706,7 @@ h2 {
   border-radius: 20px;
   border: none;
   background: var(--sand);
-  color: var(--deep);
+  color: var(--text);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -820,7 +715,7 @@ h2 {
 /* Highlighted search result */
 .search-highlight {
   outline: 2px solid var(--sand);
-  background: rgba(216, 195, 165, 0.1);
+  background: rgba(216, 195, 165, 0.18);
   transition: background 0.3s ease;
 }
 
