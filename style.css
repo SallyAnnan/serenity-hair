@@ -766,3 +766,23 @@ h2 {
     z-index: 40;
   }
 }
+/* Gallery layout on small screens: 2 on top, 1 below */
+@media (max-width: 600px) {
+  .gallery-bubbles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 16px; /* vertical / horizontal spacing */
+  }
+
+  .gallery-bubbles .bubble {
+    width: 45%;          /* two per row */
+    max-width: 170px;
+    margin: 0 auto;
+  }
+
+  .gallery-bubbles .bubble img {
+    width: 100%;
+    height: auto;
+  }
+}
