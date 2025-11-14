@@ -38,6 +38,8 @@ inspirationText: "Serenity Hair was born from a personal journey. After experien
 whyChooseTitle: " Why Choose Us",
 whyChooseText: "Because you deserve the best. Our extensions are crafted from the highest-quality hair on the market and designed to blend seamlessly with your natural texture. Each strand moves, shines, and feels just like your own — giving you a flawless, undetectable finish that lasts.",
 originalTitle: "Original Prices",
+     navAppointment: "Make an appointment",
+
 
   },
   fr: {
@@ -70,6 +72,8 @@ inspirationText: "Serenity Hair est née d’un parcours personnel. Après avoir
 whyChooseTitle: " Pourquoi nous choisir",
 whyChooseText: "Parce que vous méritez ce qu’il y a de mieux. Nos extensions sont fabriquées à partir des cheveux de la plus haute qualité sur le marché et sont conçues pour se fondre parfaitement avec votre texture naturelle. Chaque mèche bouge, brille et se ressent comme la vôtre, pour un résultat impeccable et indétectable qui dure.",
 originalTitle: "Tarifs d’origine",
+     navAppointment: "Prendre rendez-vous",
+
   },
 };
 
