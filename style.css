@@ -735,3 +735,34 @@ h2 {
     padding: 5px 10px;
   }
 }
+/* --- Make Serenity Hair logo text black --- */
+.hero-logo .logo-script,
+.logo-script {
+  color: var(--text);  /* now black/dark, not beige */
+}
+
+/* --- Make the LUXURY HAIR loop text black --- */
+.scroll-banner {
+  /* you already set background etc. */
+  color: var(--text);  /* instead of var(--sand) */
+}
+
+/* --- Make the 'Make an appointment' button text black --- */
+.nav-appointment {
+  color: var(--text);           /* text black */
+  border-color: var(--sand);    /* keep the chic beige border */
+}
+
+/* --- Fix EN/FR overlapping hamburger on mobile --- */
+@media (max-width: 600px) {
+  .lang-toggle {
+    top: 60px;        /* push it a bit down so it doesn’t sit on the 3 lines */
+    left: 16px;
+    z-index: 20;      /* under the top-nav (which is z-index: 40) */
+    font-size: 12px;
+  }
+
+  .top-nav {
+    z-index: 40;
+  }
+}
